@@ -1,0 +1,16 @@
+version: "3"
+volumes:
+  pgdata:
+services:
+  pagila:
+    image: postgres:15.3
+    container_name: sql-egitim-sample-db
+    environment:
+      POSTGRES_PASSWORD: yte
+      POSTGRES_USER: postgres
+    volumes:
+      - ./pagila-schema.sql:/docker-entrypoint-initdb.d/1-pagila-schema.sql
+      - ./pagila-data.sql:/docker-entrypoint-initdb.d/2-pagila-data.sql
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5439:5432
