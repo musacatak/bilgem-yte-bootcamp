@@ -1,0 +1,10 @@
+version: "3"
+services:
+  postgres-hibernate:
+    image: postgres:15.3
+    container_name: hibernate-egitim-sample-db
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    ports:
+      - 5442:5432
