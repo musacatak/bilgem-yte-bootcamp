@@ -1,0 +1,41 @@
+.boardWrapper {
+    width: 750px;
+    height: 750px;
+    padding: 50px;
+}
+
+.board {
+    border-spacing: 0;
+    width: 750px;
+    height: 750px;
+}
+
+.square {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+}
+
+.big-square {
+    background-color: yellow;
+}
+
+.first-row {
+    background-color: dodgerblue;
+}
+
+.first-column {
+    background-color: rebeccapurple;
+}
+
+#square1 {
+    background-color: dodgerblue;
+}
+
+#square2 {
+    background-color: limegreen;
+}
+
+#square3 {
+    background-color: dodgerblue;
+}
