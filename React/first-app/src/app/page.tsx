@@ -1,5 +1,4 @@
 'use client'
-import styles from './page.module.css'
 import FormElement from './components/FormElement'
 import FirstButton from "@/app/components/FirstButton";
 import "./page.css"
