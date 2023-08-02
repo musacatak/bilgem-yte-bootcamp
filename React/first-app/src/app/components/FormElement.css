@@ -1,5 +1,5 @@
 .inputLabel {
-    display: flex;
+    display: grid;
     align-items: center;
     margin-bottom: 10px;
     font-weight: bold;
