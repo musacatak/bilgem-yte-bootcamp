@@ -1,0 +1,10 @@
+.inputLabel {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    justify-content: center;
+}
+.inputLabel span {
+    padding: 10px;
+}

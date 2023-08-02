@@ -1,20 +1,25 @@
 'use client'
-import {useState} from 'react';
+import styles from './page.module.css'
+import FormElement from './components/FormElement'
+import FirstButton from "@/app/components/FirstButton";
+
+import React, {useState} from 'react';
 
 export default function Home() {
-    const [count, setCount] = useState(0);
+    const [name, setName] = useState('');
+    const [company, setCompany] = useState('');
+    const [address, setAddress] = useState('');
 
-    function handleClick() {
-        console.log('You clicked me!');
-        setCount(count + 1)
-    }
+    console.log(name, company, address);
+
 
     return (
-        <div>
-            <p className={"counterText"}>{count}</p>
-            <button className={"myButton"} onClick={handleClick}>
-                Clicked {count} times
-            </button>
-        </div>
+        <main>
+            <FormElement myLabel='Name' inputHandler={setName}/>
+            <FormElement myLabel='Company Name' inputHandler={setCompany}/>
+            <FormElement myLabel='Address' inputHandler={setAddress}/>
+            <FirstButton data={[name, company, address]}/>
+        </main>
+
     )
 }
