@@ -26,44 +26,59 @@ export default function Home() {
 
 
     return (
-        <main className='my-app'>
-            <ThemeContext.Provider value={"light"}>
 
-                <div className='my-form'>
-                    <FormElement myLabel='Name' inputHandler={setName} />
-                    <FormElement myLabel='Company Name' inputHandler={setCompany} />
-                    <FormElement myLabel='Address' inputHandler={setAddress} />
-                    <FirstButton />
-                    <ShowButton setShow={setShow} show={show} />
+        <>
+            <header>
+                <nav>
+                    <a href="/">Home</a>
+                    <a href="/catak/Cihangir">Cihangir Page</a>
+                    <a href="/catak/Musa">Musa Page</a>
+                </nav>
+            </header>
 
-                </div>
+            <main className='my-app'>
 
-                {show ? (
-                    <PersonCard data={[name,company,address]}/>
-                ) : null}
-
-                <div className="table-form">
-                    {/* <DataTable/> */}
-                </div>
-
-                <div  className='person-information'>
-                    <PractiseUseEffect/>
-                </div>
-
-                <div  className='person-information'>
-                    <PSetInterval/>
-                </div>
-
-                <ChildrenExample label={"Hello World!"} >
-                    <p>Ben cocukum</p>
-                </ChildrenExample>
-
-                <ContextExample />
-
-            </ThemeContext.Provider>
+                <ThemeContext.Provider value={"light"}>
 
 
-        </main>
+                    <div className='my-form'>
+                        <FormElement myLabel='Name' inputHandler={setName} />
+                        <FormElement myLabel='Company Name' inputHandler={setCompany} />
+                        <FormElement myLabel='Address' inputHandler={setAddress} />
+                        <FirstButton />
+                        <ShowButton setShow={setShow} show={show} />
+
+                    </div>
+
+                    {show ? (
+                        <PersonCard data={[name,company,address]}/>
+                    ) : null}
+
+                    <div className="table-form">
+                        {/* <DataTable/> */}
+                    </div>
+
+                    <div  className='person-information'>
+                        <PractiseUseEffect/>
+                    </div>
+
+                    <div  className='person-information'>
+                        <PSetInterval/>
+                    </div>
+
+                    <ChildrenExample label={"Hello World!"} >
+                        <p>Ben cocukum</p>
+                    </ChildrenExample>
+
+                    <ContextExample />
+
+                </ThemeContext.Provider>
+
+
+            </main>
+        </>
+
+
 
     )
 }
