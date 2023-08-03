@@ -10,6 +10,9 @@ import ShowButton from "@/app/components/ShowButton";
 import PractiseUseEffect from "@/app/components/PractiseUseEffect/PractiseUseEffect";
 import PersonCard from "@/app/components/PersonCard/PersonCard";
 import PSetInterval from "@/app/components/PSetInterval/PSetInterval";
+import {ThemeContext} from "@/app/components/ThemeContext/ThemeContext";
+import ContextExample from "@/app/components/ThemeContext/ContextExample";
+import ChildrenExample from "@/app/components/ChildrenExample/ChildrenExample";
 
 export default function Home() {
     const [name, setName] = useState('');
@@ -24,30 +27,41 @@ export default function Home() {
 
     return (
         <main className='my-app'>
-            <div className='my-form'>
-                <FormElement myLabel='Name' inputHandler={setName} />
-                <FormElement myLabel='Company Name' inputHandler={setCompany} />
-                <FormElement myLabel='Address' inputHandler={setAddress} />
-                <FirstButton />
-                <ShowButton setShow={setShow} show={show} />
+            <ThemeContext.Provider value={"light"}>
 
-            </div>
+                <div className='my-form'>
+                    <FormElement myLabel='Name' inputHandler={setName} />
+                    <FormElement myLabel='Company Name' inputHandler={setCompany} />
+                    <FormElement myLabel='Address' inputHandler={setAddress} />
+                    <FirstButton />
+                    <ShowButton setShow={setShow} show={show} />
 
-            {show ? (
-                <PersonCard data={[name,company,address]}/>
-            ) : null}
+                </div>
 
-            <div className="table-form">
-                {/* <DataTable/> */}
-            </div>
+                {show ? (
+                    <PersonCard data={[name,company,address]}/>
+                ) : null}
 
-            <div  className='person-information'>
-               <PractiseUseEffect/>
-            </div>
+                <div className="table-form">
+                    {/* <DataTable/> */}
+                </div>
 
-            <div  className='person-information'>
-                <PSetInterval/>
-            </div>
+                <div  className='person-information'>
+                    <PractiseUseEffect/>
+                </div>
+
+                <div  className='person-information'>
+                    <PSetInterval/>
+                </div>
+
+                <ChildrenExample label={"Hello World!"} >
+                    <p>Ben cocukum</p>
+                </ChildrenExample>
+
+                <ContextExample />
+
+            </ThemeContext.Provider>
+
 
         </main>
 
