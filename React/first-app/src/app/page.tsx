@@ -12,7 +12,7 @@ export default function Home() {
     const [address, setAddress] = useState('');
     const [show, setShow] = useState(false);
 
-    console.log(name, company, address);
+    //console.log(name, company, address);
 
 
     return (

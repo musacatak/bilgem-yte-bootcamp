@@ -1,24 +1,17 @@
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React, {useState} from "react";
 import "./FirstButton.css";
 
-interface propsType {
-    data: any,
-
-}
-
-export default function FirstButton(props: propsType) {
+export default function FirstButton() {
     const [count, setCount] = useState(0);
 
     function handleClick() {
-        console.log(props.data)
-        console.log('You clicked me!');
         setCount(count + 1)
     }
 
     return (
         <div>
-            <p className={"counterText"}>{count}</p>
-            <button className={"myButton"} onClick={handleClick}>
+            <p className={"counter-text"}>{count}</p>
+            <button className={"counter-button"} onClick={handleClick}>
                 Clicked {count} times
             </button>
 

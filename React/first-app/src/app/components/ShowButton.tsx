@@ -1,8 +1,8 @@
-import React, {Dispatch, SetStateAction, useState} from "react";
+import React, {Dispatch} from "react";
 import "./ShowButton.css";
 
 interface propsType {
-    setShow: Dispatch<SetStateAction<any>>,
+    setShow: Dispatch<boolean>,
     show: boolean,
 
 }
@@ -21,7 +21,7 @@ export default function ShowButton(props: propsType) {
 
     return (
         <div>
-            <button className={"myButton"} onClick={handleClick}>
+            <button className={"show-button"} onClick={handleClick}>
                 Show
             </button>
 

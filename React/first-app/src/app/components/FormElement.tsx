@@ -1,7 +1,5 @@
-import {ChangeEvent, SetStateAction, useState, Dispatch} from "react"
+import {Dispatch} from "react"
 import "./FormElement.css";
-import {Simulate} from "react-dom/test-utils";
-import input = Simulate.input;
 
 interface propsType {
     myLabel: string,
@@ -11,7 +9,7 @@ interface propsType {
 export default function FormElement(props: propsType) {
 
     return (
-        <div className="inputLabel">
+        <div className="input-label">
             <span>{props.myLabel}</span>
             <input type='text' onChange={(e: any) => {
                 props.inputHandler(e.target.value);
