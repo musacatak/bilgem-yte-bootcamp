@@ -4,7 +4,7 @@ import FirstButton from "@/app/components/FirstButton";
 
 import "./page.css"
 
-import React, {  useState } from 'react';
+import React, {useState} from 'react';
 import ShowButton from "@/app/components/ShowButton";
 //import DataTable from './components/DataTable/DataTable';
 import PractiseUseEffect from "@/app/components/PractiseUseEffect/PractiseUseEffect";
@@ -19,7 +19,6 @@ export default function Home() {
     const [company, setCompany] = useState('');
     const [address, setAddress] = useState('');
     const [show, setShow] = useState(false);
-
 
 
     //console.log(name, company, address);
@@ -42,42 +41,40 @@ export default function Home() {
 
 
                     <div className='my-form'>
-                        <FormElement myLabel='Name' inputHandler={setName} />
-                        <FormElement myLabel='Company Name' inputHandler={setCompany} />
-                        <FormElement myLabel='Address' inputHandler={setAddress} />
-                        <FirstButton />
-                        <ShowButton setShow={setShow} show={show} />
+                        <FormElement myLabel='Name' inputHandler={setName}/>
+                        <FormElement myLabel='Company Name' inputHandler={setCompany}/>
+                        <FormElement myLabel='Address' inputHandler={setAddress}/>
+                        <FirstButton/>
+                        <ShowButton setShow={setShow} show={show}/>
 
                     </div>
 
                     {show ? (
-                        <PersonCard data={[name,company,address]}/>
+                        <PersonCard data={[name, company, address]}/>
                     ) : null}
 
                     <div className="table-form">
                         {/* <DataTable/> */}
                     </div>
 
-                    <div  className='person-information'>
+                    <div className='card'>
                         <PractiseUseEffect/>
                     </div>
 
-                    <div  className='person-information'>
-                        <PSetInterval/>
-                    </div>
 
-                    <ChildrenExample label={"Hello World!"} >
+                    <PSetInterval/>
+
+                    <ChildrenExample label={"Hello World!"}>
                         <p>Ben cocukum</p>
                     </ChildrenExample>
 
-                    <ContextExample />
+                    <ContextExample/>
 
                 </ThemeContext.Provider>
 
 
             </main>
         </>
-
 
 
     )

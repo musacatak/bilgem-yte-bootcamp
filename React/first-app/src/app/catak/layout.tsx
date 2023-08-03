@@ -1,10 +1,11 @@
 'use client'
 import React, {ReactNode} from 'react';
+import "./catak.css"
 
 interface props{
     children: ReactNode,
 }
-export default function catak({ children } : props){
+export default function Catak({ children } : props){
     return(
         <div>
             <header>

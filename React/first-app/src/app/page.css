@@ -16,6 +16,98 @@
     font-family: Arial, sans-serif;
 }
 
+header {
+    background-color: #333;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+.my-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin-right: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    font-family: Arial, sans-serif;
+}
+
+.card h1,
+.card h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.card h2,
+.card h2 {
+    color: #444;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card h2::before,
+.card h2::before {
+    content: '• ';
+    color: #4CAF50;
+}
+
+.card h2:first-child::before,
+.card h2:first-child::before {
+    content: '';
+}
+
+.card h2:last-child::after,
+.card h2:last-child::after {
+    content: '';
+}
+
+.card input[type="text"],
+.card h2 {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+
 
 
 

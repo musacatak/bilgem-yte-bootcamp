@@ -9,7 +9,7 @@ export default function PersonCard(props : propsType){
 
 
     return(
-        <div className='person-information'>
+        <div className='card'>
             <h1>Person Information:</h1>
             <br />
             <h2>Name: {props.data[0]}</h2>
