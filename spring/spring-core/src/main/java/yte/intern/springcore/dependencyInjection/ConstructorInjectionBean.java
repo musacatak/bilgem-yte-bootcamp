@@ -1,4 +1,4 @@
-package yte.intern.springcore;
+package yte.intern.springcore.dependencyInjection;
 
 import org.springframework.stereotype.Component;
 

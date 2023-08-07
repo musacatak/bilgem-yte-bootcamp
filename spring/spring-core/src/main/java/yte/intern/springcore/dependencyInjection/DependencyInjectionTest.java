@@ -1,4 +1,4 @@
-package yte.intern.springcore;
+package yte.intern.springcore.dependencyInjection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
