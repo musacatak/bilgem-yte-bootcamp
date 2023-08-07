@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 public class FieldInjectionBean {
 
     public void print() {
-        System.out.println("I am a FieldInjection Bean.");
+        System.out.println("Ben bir field injection bean’iyim");
     }
 
 }
