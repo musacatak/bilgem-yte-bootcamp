@@ -25,6 +25,14 @@ public class SpringDataApplication {
 
         saveBooks(bookRepository);
 
+        printBookRepository(bookRepository);
+
+        printBookRepositoryWithQuery(bookRepository);
+
+
+    }
+
+    public static void printBookRepository(BookRepository bookRepository) {
 
         Book bookByTitle = bookRepository.findByTitle("Domain Driven Design");
         System.out.println("Book with title 'Domain Driven Design': " + bookByTitle);
@@ -53,6 +61,32 @@ public class SpringDataApplication {
 
     }
 
+    public static void printBookRepositoryWithQuery(BookRepository bookRepository) {
+
+        System.out.println("@@@@@ printQueriesWith Query Annotation @@@@@");
+
+        System.out.println("Book with title 'Domain Driven Design': " +
+                bookRepository.findByTitleQuery("Domain Driven Design"));
+
+        System.out.println("Books with age >= 15 ordered by age: " +
+                bookRepository.findByAgeGreaterThanQuery(15L, Sort.by("age").ascending()));
+
+        System.out.println("Books published after 2000, page 2:" + bookRepository.findByPublishDateAfterQuery(
+                LocalDateTime.parse("2000-01-01T00:00"), PageRequest.of(1, 5)));
+
+        System.out.println("Books with 'Clean' in title: " +
+                bookRepository.findByTitleContainsIgnoreCaseQuery("Clean"));
+
+        System.out.println("Books by Robert C. Martin with age > 10: " +
+                bookRepository.findByAuthorAndAgeGreaterThanQuery("Robert C. Martin", 10L));
+
+
+        System.out.println("Number of books by Kent Beck: " + bookRepository.countByAuthorQuery("Kent Beck"));
+
+        System.out.println("Has books by Martin Fowler: " + bookRepository.existsByAuthorQuery("Martin Fowler"));
+
+    }
+
 
     protected static void saveBooks(BookRepository bookRepository) {
         List<Book> exampleBooks = new ArrayList<>();
@@ -71,7 +105,7 @@ public class SpringDataApplication {
         bookRepository.saveAll(exampleBooks);
     }
 }
-    //    @Bean
+//    @Bean
 //    public CommandLineRunner initData(BookRepository bookRepository) {
 //        return args -> {
 //            List<Book> exampleBooks = new ArrayList<>();
