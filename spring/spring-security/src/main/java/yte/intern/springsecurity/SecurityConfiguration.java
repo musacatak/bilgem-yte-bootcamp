@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import yte.intern.springsecurity.user.UserDetailsServiceImpl;
 
 
 @Configuration
@@ -18,7 +19,7 @@ public class SecurityConfiguration {
     // ıt can run without autowired because of the constroctor has only bean elements
     @Autowired
     public SecurityConfiguration(AuthenticationManagerBuilder authenticationManagerBuilder,
-                                 CustomUserDetailsService customUserDetailsService) throws Exception {
+                                 UserDetailsServiceImpl userDetailsService) throws Exception {
 
 //        UserDetails user = User.builder()
 //                .username("user")
@@ -33,7 +34,7 @@ public class SecurityConfiguration {
 //                .build();
 
         authenticationManagerBuilder
-                .userDetailsService(customUserDetailsService)
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance());
     }
 

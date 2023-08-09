@@ -1,17 +1,18 @@
-package yte.intern.springsecurity;
+package yte.intern.springsecurity.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
 @Service
-public class CustomUserDetailsService implements UserDetailsService {
+@RequiredArgsConstructor
+public class UserDetailsServiceImpl implements UserDetailsService {
+
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(final String username){
-        return new CustomUser(username,username, new ArrayList<>());
-
+        return userRepository.findByUsername(username);
     }
 }
