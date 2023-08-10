@@ -3,22 +3,22 @@ package yte.intern.springsecurity.user;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 
-import java.util.Set;
-
 @Entity
-@Data
+@Getter
+@NoArgsConstructor
 public class Authority implements GrantedAuthority {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @ManyToMany(mappedBy = "authorities")
-    private Set<Users> userEntites;
-
     private String authority;
+
+    public Authority(String authority) {
+        this.authority = authority;
+    }
 }

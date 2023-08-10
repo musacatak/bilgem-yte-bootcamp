@@ -28,10 +28,12 @@ public class Users implements UserDetails {
     private boolean isEnabled;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "USER_AUTHORITIES",
-    joinColumns = @JoinColumn(name="USER_ID"),
-    inverseJoinColumns = @JoinColumn(name = "AUTHORITY_ID"))
+    @JoinTable(name = "user_authorities",
+    joinColumns = @JoinColumn(name="user_id"),
+    inverseJoinColumns = @JoinColumn(name = "authority_id"))
     private Set<Authority> authorities;
+
+
 
     @Override
     public boolean isAccountNonExpired(){
