@@ -1,25 +1,35 @@
 package yte.intern.springsecurity;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import yte.intern.springsecurity.user.CustomAuthenticationProvider;
-import yte.intern.springsecurity.user.LoginService;
 
 
 @Configuration
 @EnableMethodSecurity
 public class SecurityConfiguration {
 
+    @Autowired
     private final CustomAuthenticationProvider customAuthenticationProvider;
 
     public SecurityConfiguration(CustomAuthenticationProvider customAuthenticationProvider) {
         this.customAuthenticationProvider = customAuthenticationProvider;
     }
 
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+
+        authenticationManagerBuilder.authenticationProvider(customAuthenticationProvider);
+    }
+
     @Bean
+    @Primary
     public HttpSecurity securityFilterChain(HttpSecurity http) throws Exception {
         return http.authorizeHttpRequests()
                 .requestMatchers(AntPathRequestMatcher.antMatcher("/admin")).hasRole("ADMIN")
@@ -28,22 +38,12 @@ public class SecurityConfiguration {
                 .anyRequest().authenticated()
                 //diğer matcherlarım
                 .and()
-                .httpBasic()
-                .and()
-                .formLogin().disable();
+                .formLogin()
+                    .disable();
 
 
     }
 
-    @Bean
-    public CustomAuthenticationProvider authenticationProvider() {
-        return new CustomAuthenticationProvider(loginService());
-    }
-
-    @Bean
-    public LoginService loginService() {
-        return new LoginService(userDetailsService(), authenticationProvider());
-    }
 
 
 //    // ıt can run without autowired because of the constroctor has only bean elements
